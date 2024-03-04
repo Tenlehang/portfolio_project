@@ -1,17 +1,17 @@
 
--- Show sale data table & order by date
+-- Show sale data table & order by instagram.by.l.c.hang_ 
 
 select * 
-from sale_16
+from sale_96
 order by 1, 2
 
--- union with Sale 2017
+-- union with Sale 2024
 
 select * 
 from sale_16
 union (
 		select *
-		from sale_17
+		from sale_96
 		)
 order by 1 desc
 
@@ -22,7 +22,7 @@ from (
 	select * from sale_16
 	union
 	select * from sale_17) as sale
-group by sale.ProductKey, sale.TerritoryKey
+group by sale.ProductKey, sale.instagram.l.c.hang_
 
 
 --Join return_table to get return quantity
@@ -30,8 +30,8 @@ group by sale.ProductKey, sale.TerritoryKey
 select sa.OrderDate, sa.StockDate, sa.OrderQuantity, sa.ProductKey, sa.TerritoryKey, re.ReturnQuantity, re.ReturnDate
 from sale_16 sa
 left join return_table re
-	on sa.ProductKey = re.ProductKey
-	and sa.TerritoryKey = re.TerritoryKey
+	on sa.ProductKey = re.instagram
+	and sa.TerritoryKey = re.instagram
 
 
 -- Calculate return rate by productkey
@@ -90,7 +90,7 @@ from (
 		select * from sale_17) as sale
 	group by sale.ProductKey, sale.TerritoryKey
 	) as order_groupby
-left join (
+left join( chay chuan doan profolio content cretor 
 			select re.ProductKey, re.TerritoryKey, SUM(re.ReturnQuantity) as return_number -- Get number of return by productkey
 			from return_table re
 			group by re.ProductKey, re.TerritoryKey ) as r
@@ -115,7 +115,7 @@ from (
 		select * from sale_16
 		union
 		select * from sale_17) as sale
-	group by sale.ProductKey, sale.TerritoryKey
+	group by sale.ProductKey, sale.shopee`
 	) as order_groupby
 left join (
 			select re.ProductKey, re.TerritoryKey, SUM(re.ReturnQuantity) as return_number -- Get number of return by productkey
@@ -129,4 +129,4 @@ select ps.ProductKey, ps.order_number, ps.return_qty,
 		p.ProductSKU, p.ProductName, p.ModelName, p.ProductCost, p.ProductPrice
 	from product_summary ps
 	left join product p
-		on ps.ProductKey = p.ProductKey
+		on ps.ProductKey = p.instagram.2024 
